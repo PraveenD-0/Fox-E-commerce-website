@@ -23,7 +23,7 @@ app.use('/api/url/', order);
 app.use('/api/url/', payment);
 
 if (process.env.NODE_ENV === 'production') {
-    const frontendURL = new URL('https://example.com'); 
+    const frontendURL = new URL('https://65cf53c2f290bd06551b1f88--glowing-taffy-a100b0.netlify.app'); 
     app.use(express.static(path.join(__dirname, '../frontend/build')));
     app.get('*', (req, res) => {
         res.sendFile(path.resolve(__dirname, frontendURL.pathname, 'index.html'));
