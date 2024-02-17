@@ -5,7 +5,7 @@ export  default function Footer (){
           <div className="card-header text-primary"><h1>Fox - Online Shopping</h1></div>
           <div className="card-body">
             <p className="card-text text-center ">
-            "Enjoy worry-free shopping with fast shipping, secure payments and 24/7 support. Start exploring now!"
+            Enjoy worry-free shopping with fast shipping, secure payments and 24/7 support. Start exploring now!
             </p>
           </div>
         </div>
