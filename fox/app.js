@@ -3,7 +3,6 @@ const app = express();
 const errorMiddleware = require('./middlewares/error');
 const cookieParser = require('cookie-parser');
 const path = require('path');
-const url = require('url'); // Import the url module
 const dotenv = require('dotenv');
 
 dotenv.config({ path: path.join(__dirname, 'config/config.env') });
@@ -22,12 +21,11 @@ app.use('/api/url/', auth);
 app.use('/api/url/', order);
 app.use('/api/url/', payment);
 
-if (process.env.NODE_ENV === 'production') {
-    const frontendURL = new URL('https://65cf53c2f290bd06551b1f88--glowing-taffy-a100b0.netlify.app'); 
+if(process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, '../frontend/build')));
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, frontendURL.pathname, 'index.html'));
-    });
+    app.get('*', (req, res) =>{
+        res.sendFile(path.resolve(__dirname, '../frontend/build/index.html'))
+    })
 }
 
 app.use(errorMiddleware);
