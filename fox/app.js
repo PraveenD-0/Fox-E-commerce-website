@@ -21,11 +21,13 @@ app.use('/api/url/', auth);
 app.use('/api/url/', order);
 app.use('/api/url/', payment);
 
+const frontendURL = 'https://65cf53c2f290bd06551b1f88--glowing-taffy-a100b0.netlify.app'; 
+
 if(process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, '../frontend/build')));
+    app.use(express.static(frontendURL + '/build'));
     app.get('*', (req, res) =>{
-        res.sendFile(path.resolve(__dirname, '../frontend/build/index.html'))
-    })
+        res.sendFile(frontendURL + '/build/index.html');
+    });
 }
 
 app.use(errorMiddleware);
