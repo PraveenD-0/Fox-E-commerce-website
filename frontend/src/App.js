@@ -41,12 +41,13 @@ import ReviewList from './components/admin/ReviewList';
 import { useDispatch } from 'react-redux';
 
 function App() {
-  const [stripeApiKey, setStripeApiKey] = useState("");
+ const [stripeApiKey, setStripeApiKey] = useState("");
   const dispatch = useDispatch(); // Initializing useDispatch
+
   useEffect(() => {
     async function fetchData() {
       try {
-        const { data } = await axios.get('/api/url/stripeapi');
+        const { data } = await axios.get('https://fox-e-commerce-website.onrender.com/api/url/stripeapi'); // Updated URL
         setStripeApiKey(data.stripeApiKey);
         dispatch(loadUser()); // Dispatching loadUser action
       } catch (error) {
